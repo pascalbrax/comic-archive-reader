@@ -87,15 +87,15 @@ $comics = array_filter(scandir($comicsDir), "notJustDots");
 
 <html>
     <head>
-        <script type="application/javascript" src="/js/jquery-1.6.1.min.js"></script>
-        <script type="application/javascript" src="/js/jquery.prettyPhoto.js"></script>
-        <link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+        <script type="application/javascript" src="js/jquery-1.6.1.min.js"></script>
+        <script type="application/javascript" src="js/jquery.prettyPhoto.js"></script>
+        <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
         
         <script type="application/javascript">
             var currentGallery = [];
             
             function fetchIssues(series) {
-                $.getJSON("/", {action: "issueList", series: series}, function(json) {
+                $.getJSON("", {action: "issueList", series: series}, function(json) {
                     if (json.result == "success") {
                         renderIssues(json.issues);
                     }
@@ -112,7 +112,7 @@ $comics = array_filter(scandir($comicsDir), "notJustDots");
             
             function fetchLibrary(series, issue) {
                 $('#openGallery').hide();
-                $.getJSON("/", {action: "expandIssue", series: series, issue: issue}, function(json) {
+                $.getJSON("", {action: "expandIssue", series: series, issue: issue}, function(json) {
                     if (json.result == "success") {
                         currentGallery = json.library;
                         $('#openGallery').show();
