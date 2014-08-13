@@ -72,7 +72,7 @@ if (count($_GET) > 0) {
             $issue = $_GET['issue'];
             clearImages();
             unzipArchive($series, $issue);
-            $images = scanImages();
+            $images = scanImages($issue);
             echo json_encode(array("result" => "success", "library" => $images));
             break;
         default:
