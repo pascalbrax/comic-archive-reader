@@ -7,7 +7,7 @@ $GLOBALS['imagesDir'] = "comic-images";
 // used to filter out . and .. from scandir results
 function notJustDots($x)
 {
-    return $x != "." && $x != "..";
+    return substr($x, 0, 1) != ".";
 }
 
 function clearImages()
