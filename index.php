@@ -90,6 +90,13 @@ $comics = array_filter(scandir($comicsDir), "notJustDots");
         <script type="application/javascript" src="js/jquery-1.6.1.min.js"></script>
         <script type="application/javascript" src="js/jquery.prettyPhoto.js"></script>
         <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+        <style>
+            a,p {
+                color:black;
+                font-family:verdana;
+                font-size:100%;
+            }
+        </style>
         
         <script type="application/javascript">
             var currentGallery = [];
@@ -103,7 +110,7 @@ $comics = array_filter(scandir($comicsDir), "notJustDots");
             }
             
             function renderIssues(issues) {
-                var html = "<option>Choose an issue</option>";
+                var html = "<option>Scegli un volume</option>";
                 $.each(issues, function (i, v) {
                     html += "<option>" + v + "</option>";
                 });
@@ -150,18 +157,18 @@ $comics = array_filter(scandir($comicsDir), "notJustDots");
     </head>
     <body>
         
-        Choose a comic:<br/>
-        <select id="comicPicker">
-            <option>Choose a series</option>
+        <p>Seleziona un fumetto:</p>
+        <p><select id="comicPicker">
+            <option>Scegli una serie</option>
             <?php
                 foreach($comics as $comic) {
                     echo "<option>" . $comic . "</option>";
                 }
             ?>
-        </select><br/>
+        </select></p>
         <select id="issuePicker">
             <option></option>
         </select><br/>
-        <a style="display:none;" href="#" id="openGallery">Open Gallery</a>
+        <a style="display:none;" href="#" id="openGallery">Leggi!</a>
     </body>
 </html>
